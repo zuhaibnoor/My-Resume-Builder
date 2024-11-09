@@ -37,92 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _a;
-//   // Type assertion for input fields
-//   const profilePictureInput = document.getElementById("profilePicture") as HTMLInputElement;
-//   const nameElement = document.getElementById("name") as HTMLInputElement;
-//   const emailElement = document.getElementById("email") as HTMLInputElement;
-//   const phoneElement = document.getElementById("phone") as HTMLInputElement;
-//   const educationElement = document.getElementById("education") as HTMLTextAreaElement;
-//   const experienceElement = document.getElementById("experience") as HTMLTextAreaElement;
-//   const skillsElement = document.getElementById("skills") as HTMLTextAreaElement;
-//   //**URL work */
-//   const usernameElement = document.getElementById('username') as HTMLInputElement;
-//   // Check if all elements exist
-//   if (
-//     profilePictureInput &&
-//     nameElement &&
-//     emailElement &&
-//     phoneElement &&
-//     educationElement &&
-//     experienceElement &&
-//     skillsElement &&
-//     usernameElement
-//   ) {
-//     const name = nameElement.value;
-//     const email = emailElement.value;
-//     const phone = phoneElement.value;
-//     const education = educationElement.value;
-//     const experience = experienceElement.value;
-//     const skills = skillsElement.value;
-//     const username = usernameElement.value;
-//     const uniquePath = `resumes/${username.replace(/\s+/g, '_')}_cv.html`
-//     // Handle profile picture
-//     const profilePictureFile = profilePictureInput.files?.[0];
-//     const profilePictureURL = profilePictureFile ? URL.createObjectURL(profilePictureFile) : "";
-//     // Create output for the resume
-//     const resumeOutPut = `
-//       <h2>Resume</h2>
-//       ${profilePictureURL ? `<img src="${profilePictureURL}" alt="Profile Picture" class="profilePicture" style="width: 100px; height: 100px;">` : ''}
-//       <p><strong>Name:</strong> <span id="edit-name" class="editable">${name}</span></p>
-//       <p><strong>Email:</strong> <span id="edit-email" class="editable">${email}</span></p>
-//       <p><strong>Phone Number:</strong> <span id="edit-phone" class="editable">${phone}</span></p>
-//       <h3>Education</h3>
-//       <p id="edit-education" class="editable">${education}</p>
-//       <h3>Experience</h3>
-//       <p id="edit-experience" class="editable">${experience}</p>
-//       <h3>Skills</h3>
-//       <p id="edit-skills" class="editable">${skills}</p>
-//     `;
-//     //////////////////////////////Generate pdf//////////////////////////////////
-//     // display resume in output container
-//     const resumeOutPutElement = document.getElementById("resumeOutPut");
-//     if(resumeOutPutElement){
-//       resumeOutPutElement.innerHTML = resumeOutPut;
-//       resumeOutPutElement.classList.remove("hidden");
-//       // creat button container
-//       const buttonsContainer = document.createElement("div");
-//       buttonsContainer.id = "buttonsContainer";
-//       resumeOutPutElement.appendChild(buttonsContainer);
-//       // creat doenload pdf button
-//       const downloadButton = document.createElement("button");
-//       downloadButton.textContent = "Download as pdf";
-//       downloadButton.addEventListener('click' , () => {
-//         window.print();  //for open the print box
-//       });
-//       buttonsContainer.appendChild(downloadButton);
-//       // add shareable link here
-//       const shareLinkButton = document.createElement("button");
-//       shareLinkButton.textContent = "copy Link";
-//       shareLinkButton.addEventListener('click', async () => {
-//         try{
-//           //creat shareable unique link
-//           const shareableLink = `https://yourdomain.com/resumes/${username.replace(/\s+/g,'_')}_cv.html`;
-//           //creat API
-//           await navigator.clipboard.writeText(shareableLink);
-//           alert("shareableLink copy to clipboard")
-//         }catch(err){
-//           console.error("Failed to copy link", err);
-//           alert("Failed to copy link to cilpboard please rty again ");
-//         }
-//       });
-//       buttonsContainer.appendChild(shareLinkButton);
-//     }else{
-//       console.error("resume output container not found");
-//     }
-//   }else{
-//     console.error("form elements are missing");
-//   }
-// });
+
 (_a = document.getElementById("resumeform")) === null || _a === void 0 ? void 0 : _a.addEventListener("submit", function (event) {
     var _this = this;
     var _a;
@@ -210,17 +125,17 @@ var _a;
 function downloadResumeAsFile(content, filename) {
     var blob = new Blob([content], { type: "text/html" });
     var url = URL.createObjectURL(blob);
-    // Create an anchor element and trigger the download
+
     var downloadLink = document.createElement("a");
     downloadLink.href = url;
     downloadLink.download = filename;
     downloadLink.click();
-    // Clean up the URL object after download
+
     URL.revokeObjectURL(url);
 }
-// Example usage: Generate a downloadable resume
+
 var resumeContent = "\n  <h2>Resume</h2>\n  <p><strong>Name:</strong> John Doe</p>\n  <p><strong>Email:</strong> johndoe@example.com</p>\n  <h3>Education</h3>\n  <p>Bachelor of Science in Computer Science</p>\n  <h3>Experience</h3>\n  <p>Software Engineer at XYZ Company</p>\n  <h3>Skills</h3>\n  <p>JavaScript, TypeScript, HTML, CSS</p>\n";
-// Create and append download link to the resume output container
+
 var downloadButton = document.createElement("button");
 downloadButton.textContent = "Download Resume";
 downloadButton.addEventListener("click", function () {
@@ -233,42 +148,4 @@ if (resumeOutPutElement) {
 else {
     console.error("Resume output container not found.");
 }
-//     const downLoadLink = document.createElement('a')
-//     downLoadLink.href = `data:text/html;charset=utf-8,` + encodeURIComponent(resumeOutPut);
-//     downLoadLink.download = uniquePath;
-//     downLoadLink.textContent = 'Download Your Resume';
-//     // Insert the output into the resume output element
-//     const resumeOutPutElement = document.getElementById("resumeOutPut");
-//     if (resumeOutPutElement) {
-//       resumeOutPutElement.innerHTML = resumeOutPut;
-//       resumeOutPutElement.appendChild(downLoadLink)
-//       makeEditable();
-//     }
-//   } else {
-//     console.error("One or more form elements are missing.");
-//   }
-// });
-// function makeEditable() {
-//   const editableElements = document.querySelectorAll(".editable");
-//   editableElements.forEach((element) => {
-//     element.addEventListener("click", function () {
-//       const currentElement = element as HTMLElement;
-//       const currentValue = currentElement.textContent || "";
-//       // Replace the content with an input field for editing
-//       if (currentElement.tagName === "P" || currentElement.tagName === "SPAN") {
-//         const input = document.createElement("input");
-//         input.type = "text";
-//         input.value = currentValue;
-//         input.classList.add("editing-input");
-//         input.addEventListener("blur", function () {
-//           currentElement.textContent = input.value;
-//           currentElement.style.display = "inline";
-//           input.remove();
-//         });
-//         currentElement.style.display = "none";
-//         currentElement.parentNode?.insertBefore(input, currentElement);
-//         input.focus();
-//       }
-//     });
-//    });
-// }
+

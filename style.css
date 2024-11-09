@@ -1,36 +1,49 @@
 body{
     margin: 20px;
     padding: 0;
-    background-color: rgb(251, 243, 233);;
+    background-color: rgb(26, 22, 22);;
     font-family: sans-serif;
 }
 h1{
     text-align: center;
-    color: royalblue;
+    color: rgb(255, 255, 255);
 }
-form{
+
+form {
+    backdrop-filter: blur(20px);
     max-width: 600px;
     margin: auto;
-    background-color: rgb(217, 225, 252);
+    background-color: rgb(123, 16, 16); /* Transparent aliceblue */
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
-   padding: 20px;
+    box-shadow: 0px 4px 8px rgba(255, 253, 253, 0.233);
+    padding: 20px;   
 }
+
 fieldset{
-   border: 2px solid rgb(1, 20, 79);
+   border: none;
    padding: 20px;
    margin-bottom: 20px;
-   background-color:aliceblue ;
+   background-color:rgb(50, 8, 8) ;
+   opacity: 100%;
+   border-radius: 10px;
+   box-shadow:  0px 4px 10px rgba(255, 253, 253, 0.122);
 }
 legend{
     font-weight: bold;
     text-align: center;
-    color: rgb(1, 1, 11);
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.459);
+    border-radius: 15px;
+    height: 25px;
+    padding: 10px;
+    padding-bottom: 7px;
+   
+
 }
 label{
     display: block;
     margin-top: 10px;
-    color: rgb(57, 57, 239);
+    color: rgb(255, 255, 255);
 }
 input{
     width: 100%;
@@ -42,13 +55,15 @@ input,textarea{
     border: 1px solid rgb(0, 0, 19);
     border-radius: 4px;
     box-sizing: border-box;
-   
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.459);
+    border:none;
 }
 button{
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: rgb(5, 5, 60);
+    background-color: rgb(11, 42, 3);
     color: white;
     border: none;
     border-radius: 4px;
@@ -57,7 +72,8 @@ button{
    font-size: 18px;
 }
 button:hover{
-    background-color: rgb(106, 106, 252);
+    background-color: rgb(10, 92, 29);
+    box-shadow:  0px 4px 10px rgba(255, 253, 253, 0.122);
     color: white;
 }
 #resumeOutPut{
@@ -73,6 +89,7 @@ button:hover{
 #resumeOutPut h2{
     color: rgb(7, 7, 46);
 }
+
 /* #profilePicture{
     display:block;
     margin: 0,auto;
